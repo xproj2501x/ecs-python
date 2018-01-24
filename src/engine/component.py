@@ -2,13 +2,30 @@ class Component:
 
     @property
     def entity_id(self):
+        """
+
+        :return:
+        :rtype:
+        """
         return self.entity_id
 
     @property
     def state(self):
+        """
+
+        :return:
+        :rtype:
+        """
         return self._state
 
     def __init__(self, entity_id, state):
+        """
+
+        :param entity_id:
+        :type entity_id: string
+        :param state:
+        :type state: dict
+        """
         if not entity_id:
             raise Exception('Entity id cannot be null')
         if not state:
@@ -17,6 +34,11 @@ class Component:
         self._state = state
 
     def update(self, state):
+        """
+
+        :param state:
+        :type state: dict
+        """
         for key in state:
             if not self._state[key]:
                 raise Exception('Invalid key ' + key + ' for component')
@@ -24,5 +46,14 @@ class Component:
             self._state[key] = state[key]
 
     @staticmethod
-    def create(id, state):
+    def create(entity_id, state):
+        """
+
+        :param entity_id:
+        :type entity_id: string
+        :param state:
+        :type state: dict
+        :return:
+        :rtype: Component
+        """
         return Component(id, state)
