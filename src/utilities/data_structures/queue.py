@@ -4,7 +4,7 @@ class Queue:
     def length(self):
         """
 
-        :return:
+        :return: the length of the queue
         :rtype: int
         """
         return len(self._data)
@@ -17,22 +17,25 @@ class Queue:
 
     def enqueue(self, element):
         """
-
-        :param element:
-        :type element:
+        Adds an element to the back of the queue
+        :param element: the element to be added to the queue
+        :type object:
         """
         self._data.append(element)
 
     def dequeue(self):
         """
 
+        :return: the first element in the queue
+        :rtype: object
         """
         if self.length:
             return self._data.pop(0)
 
     def peek(self):
         """
-
+        :return: the first element in the queue
+        :rtype: object
         """
         if self.length:
             return self._data[0]
