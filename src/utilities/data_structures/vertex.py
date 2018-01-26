@@ -11,6 +11,7 @@ class Vertex:
     def __init__(self, vertex_id, data):
         self._id = vertex_id
         self._data = data
+        self._edges = {}
 
     def add_edge(self):
         pass
