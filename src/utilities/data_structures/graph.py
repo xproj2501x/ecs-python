@@ -20,12 +20,18 @@ class Graph:
     def remove_vertex(self, vertex_id):
         if not self._has_vertex(vertex_id):
             raise Exception('Vertex id {0} does not exist in the graph'.format(vertex_id))
+        vertex = self._vertices[vertex_id]
+        del self._vertices[vertex_id]
 
-    def add_edge(self, vertex1_id, vertex2_id):
-        pass
+    def add_edge(self, vertex1_id, vertex2_id, weight):
+        if not self._has_vertex(vertex2_id):
+            raise Exception('Vertex id {0} does not exist in the graph'.format(vertex2_id))
+        vertex = self.get_vertex(vertex1_id)
+        vertex.add_edge(vertex2_id, weight)
 
     def remove_edge(self, vertex1_id, vertex2_id):
-        pass
+        vertex = self.get_vertex(vertex1_id)
+        vertex.remove_edge(vertex2_id)
 
     def _has_vertex(self, vertex_id):
         return vertex_id in self._vertices
