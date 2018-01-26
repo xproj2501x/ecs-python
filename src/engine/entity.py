@@ -8,7 +8,7 @@ class Entity:
         """
 
         :return:
-        :rtype:
+        :rtype: string
         """
         return self._id
 
