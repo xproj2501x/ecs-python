@@ -19,6 +19,7 @@ class MessageService:
         Adds a subscription for the subject to the message service
         :param subscriber: the handler for the subscription
         :type subscriber: string
+
         :param subject: the subject for the subscription
         :type subject: string
         """
@@ -33,6 +34,7 @@ class MessageService:
         Removes a subscription for the subject from the message service
         :param subscriber: the handler for the subscription
         :type subscriber: string
+
         :param subject: the subject for the subscription
         :type subject: string
         """
@@ -62,7 +64,8 @@ class MessageService:
         :param message: the message to be sent
         :type message: object
         """
-        if not self._has_subject(message.subject):
+        subject = message.subject
+        if not self._has_subject(subject):
             raise Exception('Subject {0} does not exist'.format(subject))
         if self._locked:
             self._bounced.enqueue(message)
@@ -79,6 +82,7 @@ class MessageService:
         Verifies that the subject exists in the message service
         :param subject: the subject for the subscription
         :type subject: string
+
         :return:
         :rtype: bool
         """
@@ -91,6 +95,7 @@ class MessageService:
         :type subscriber: string
         :param subject: the subject for the subscription
         :type subject: string
+
         :return:
         :rtype: bool
         """
@@ -102,7 +107,8 @@ class MessageService:
     def create():
         """
         Static factory method
-        :return:
+
+        :return: A new message service
         :rtype: MessageService
         """
         return MessageService()

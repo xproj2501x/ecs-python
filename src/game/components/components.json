@@ -1,0 +1,50 @@
+{
+  "position": {
+    "x_coordinate": "int",
+    "y_coordinate": "int",
+    "z_coordinate": "int"
+  },
+  "health": {
+    "max": "int",
+    "current": "int"
+  },
+  "tween": {
+    "x_coordinate": "int",
+    "y_coordinate": "int",
+    "duration": "int",
+    "current_frame": "int"
+  },
+  "sprite": {
+    "sheet": "string",
+    "height": "int",
+    "width": "int",
+    "x_coordinate": "int",
+    "y_coordinate": "int"
+  },
+  "animation": {
+    "name": "string",
+    "length": "int",
+    "speed": "int",
+    "current_frame": "int",
+    "repeat": "bool"
+  },
+  "equippable": {
+    "location": "string",
+    "weight": "int"
+  },
+  "consumable": {
+
+  },
+  "stackable": {
+    "max": "int",
+    "current": "int"
+  },
+  "protective": {
+    "type": "string",
+    "value": "int"
+  },
+  "damaging": {
+    "type": "string",
+    "value": "int"
+  }
+}

@@ -4,22 +4,20 @@ from src.engine.entity import Entity
 
 class EntityTest(unittest.TestCase):
 
-    def test_constructor(self):
-        ID = '1234'
-        entity = Entity(ID)
-        self.assertEqual(entity.id, ID)
+    def setUp(self):
+        pass
 
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
+    def test_attach_component(self):
+        pass
 
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
+    def test_has_component(self):
+        pass
 
+    def test_get_component(self):
+        pass
+
+    def test_detach_component(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()

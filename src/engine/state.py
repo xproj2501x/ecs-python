@@ -1,7 +1,7 @@
 class State:
 
-    def __init__(self):
-        pass
+    def __init__(self, name):
+        self._name = name
 
     def on_enter(self):
         """
@@ -13,7 +13,13 @@ class State:
 
         """
         pass
-    
+
+    def next(self, event):
+        pass
+
+    def render(self):
+        pass
+
     @staticmethod
     def create():
         pass
