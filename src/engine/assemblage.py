@@ -1,16 +1,15 @@
+from src.utilities.data_structures.graph import Graph
+
+
 class Assemblage:
 
-    @property
-    def name(self):
-        return self._name
 
     @property
     def id(self):
         return self._entity.id
 
-    def __init__(self, name, entity):
-        self._name = name
+    def __init__(self, entity):
         self._entity = entity
 
-    def _get_component(self, component_type):
-        return self._entity.get_component(component_type)
+    def attach_component(self, component_type, component):
+        self._entity.attach_component(component_type, component)

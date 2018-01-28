@@ -9,14 +9,18 @@ class EntityManager:
         """
         self._entities = {}
 
-    def create_entity(self, entity_id):
+    def create_entity(self, entity_id=None):
         """
-
+        Creates a new entity
         :param entity_id: the identifier for the entity to be created
         :type entity_id: string
+
+        :return: The new entity
+        :rtype: Entity
         """
         entity = Entity.create(entity_id)
         self._entities[entity_id] = entity
+        return entity
 
     def destroy_entity(self, entity_id):
         """

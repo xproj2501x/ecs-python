@@ -7,7 +7,7 @@ class Component:
         :return:
         :rtype:
         """
-        return self.entity_id
+        return self._entity_id
 
     @property
     def state(self):
@@ -30,7 +30,7 @@ class Component:
             raise Exception('Entity id cannot be null')
         if not state:
             raise Exception('Component state cannot be null')
-        self.entity_id = entity_id
+        self._entity_id = entity_id
         self._state = state
 
     def update(self, state):

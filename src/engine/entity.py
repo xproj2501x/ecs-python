@@ -65,7 +65,7 @@ class Entity:
         del self._components[component_type]
 
     @staticmethod
-    def create(entity_id):
+    def create(entity_id=None):
         """
         :param entity_id: the id for the entity
         :type entity_id: string

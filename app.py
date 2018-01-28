@@ -14,6 +14,7 @@ try:
     from src.engine.state_manager import StateManager
     from src.engine.entity_manager import EntityManager
 
+    from src.game.game import GAME
     from src.game.states.loading_state import LoadingState
     from src.game.states.playing_state import PlayingState
 except ImportError as err:
@@ -46,35 +47,36 @@ STATES = {
 
 
 def main():
-    pygame.init()
-    screen = pygame.display.set_mode((640, 480))
-    entity_manager = EntityManager.create()
-    engine = Engine.create()
-    state_manager = StateManager.create(screen, STATES, 'LOADING')
+    # pygame.init()
+    # screen = pygame.display.set_mode((640, 480))
+    # entity_manager = EntityManager.create()
+    engine = Engine.create(GAME)
+    engine.start()
+    # state_manager = StateManager.create(screen, STATES, 'LOADING')
+    #
+    # pygame.display.set_caption('ECS Python')
+    #
+    # background = pygame.Surface(screen.get_size())
+    # background = background.convert()
+    # background.fill((0, 0, 0))
+    #
+    # basic_font = pygame.font.SysFont(None, 48)
+    #
+    # screen.blit(background, (0, 0))
+    # pygame.display.flip()
+    #
+    # clock = pygame.time.Clock()
+    # while 1:
+    #     for event in pygame.event.get():
+    #         if event.type == pygame.QUIT:
+    #             return
+    #         elif event.type == pygame.KEYDOWN:
+    #             state_manager.run(event.key)
+    #
+    #     engine.tick(pygame.time.get_ticks())
+    #     state_manager.render(basic_font)
+    #     pygame.display.flip()
 
-    pygame.display.set_caption('ECS Python')
 
-    background = pygame.Surface(screen.get_size())
-    background = background.convert()
-    background.fill((0, 0, 0))
-
-    basic_font = pygame.font.SysFont(None, 48)
-
-    screen.blit(background, (0, 0))
-    pygame.display.flip()
-
-    clock = pygame.time.Clock()
-    while 1:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return
-            elif event.type == pygame.KEYDOWN:
-                print(event.key)
-                state_manager.run(event.key)
-
-        engine.tick(pygame.time.get_ticks())
-        state_manager.render(basic_font)
-        pygame.display.flip()
-
-
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

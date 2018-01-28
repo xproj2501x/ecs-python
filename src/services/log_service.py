@@ -1,10 +1,13 @@
-LOG_LEVEL = {}
-LOG_LEVEL.NONE = 1 << 0
-LOG_LEVEL.LOG = 1 << 1
-LOG_LEVEL.DEBUG = 1 << 2
-LOG_LEVEL.WARNING = 1 << 3
-LOG_LEVEL.ERROR = 1 << 4
-LOG_LEVEL.ALL = 1 << 5
+from enum import Enum
+
+
+class LOG_LEVEL(Enum):
+    NONE = 1 << 0
+    LOG = 1 << 1
+    DEBUG = 1 << 2
+    WARNING = 1 << 3
+    ERROR = 1 << 4
+    ALL = 1 << 5
 
 
 class LogService:
@@ -68,3 +71,7 @@ class LogService:
         """
         if log_level <= self._log_level:
             self._data.append(message)
+
+    @staticmethod
+    def create(context, level):
+        return LogService(context, level)

@@ -1,22 +1,24 @@
 class ComponentManager:
 
-    def __init__(self):
+    def __init__(self, templates):
         """
 
         """
-        self._templates = {}
+        self._templates = templates
         self._components = {}
 
     def create_component(self, entity_id, component_type, state):
         """
-
+        Creates a new component of the specified type
         :param entity_id:
         :type entity_id: string
         :param component_type:
         :type component_type: string
         :param state:
         :type state: dict
-        :return:
+
+        :return: The new component
+        :rtype: Component
         """
         if self.has_component(entity_id, component_type):
             raise Exception('Component type ' + component_type + ' for entity id ' + entity_id + ' already exists')
@@ -25,6 +27,7 @@ class ComponentManager:
         if component_type not in self._components:
             self._components[component_type] = {}
         self._components[component_type][entity_id] = component
+        return component
 
     def destroy_component(self, entity_id, component_type):
         """
@@ -77,6 +80,8 @@ class ComponentManager:
         :return:
         :rtype: bool
         """
+        if component_type not in self._components:
+            return False
         components = self._components[component_type]
         return entity_id in components
 
@@ -115,10 +120,10 @@ class ComponentManager:
         return self._templates[component_type]
 
     @staticmethod
-    def create():
+    def create(templates):
         """
 
         :return:
         :rtype: ComponentManager
         """
-        return ComponentManager()
+        return ComponentManager(templates)
