@@ -1,0 +1,6 @@
+pygame
+
+pylint
+pytest
+pytest-cov
+setuptools
