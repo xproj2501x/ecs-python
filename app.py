@@ -18,6 +18,8 @@ try:
     # from src.game.states.loading_state import LoadingState
     # from src.game.states.playing_state import PlayingState
     from src.game.generators.world_generator import WorldGenerator
+    from src.utilities.data_structures.binary_tree import BinaryTree
+    from src.utilities.algorithms.diamond_square import DiamondSquare
 except ImportError as err:
     print("couldn't load module. {0}".format(err))
     sys.exit(2)
@@ -51,6 +53,8 @@ except ImportError as err:
 def main():
     world_generator = WorldGenerator()
     world_generator.build()
+    tree = BinaryTree()
+    tree.insert_node('bar', 10)
     # pygame.init()
     # screen = pygame.display.set_mode((640, 480))
     # entity_manager = EntityManager.create()
