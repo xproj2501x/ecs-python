@@ -8,7 +8,8 @@ class WorldGenerator:
         self._diamond_square = DiamondSquare()
 
     def build(self):
-        self._diamond_square.build(4, 0, 255)
+        map = self._diamond_square.build(4, 1, 255)
+        print(map[2])
 
     def _generate_height_map(self):
         pass

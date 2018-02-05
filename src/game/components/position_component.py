@@ -1,6 +1,7 @@
 from src.engine.component import Component
 
-class ComponentKeys:
+
+class Keys:
     x_coordinate = 'X_COORDINATE'
     y_coordinate = 'Y_COORDINATE'
     z_coordinate = 'Z_COORDINATE'
@@ -10,7 +11,7 @@ class PositionComponent(Component):
 
     @property
     def x_coordinate(self):
-        return self._state[ComponentKeys.x_coordinate]
+        return self._state[Keys.x_coordinate]
 
     @property
     def y_coordinate(self):

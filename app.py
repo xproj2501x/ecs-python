@@ -18,6 +18,8 @@ try:
     # from src.game.states.loading_state import LoadingState
     # from src.game.states.playing_state import PlayingState
     from src.game.generators.world_generator import WorldGenerator
+    from src.utilities.data_structures.binary_tree import BinaryTree
+    from src.utilities.algorithms.diamond_square import DiamondSquare
 except ImportError as err:
     print("couldn't load module. {0}".format(err))
     sys.exit(2)
