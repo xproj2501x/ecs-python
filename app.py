@@ -53,6 +53,8 @@ except ImportError as err:
 def main():
     world_generator = WorldGenerator()
     world_generator.build()
+    tree = BinaryTree()
+    tree.insert_node('bar', 10)
     # pygame.init()
     # screen = pygame.display.set_mode((640, 480))
     # entity_manager = EntityManager.create()
