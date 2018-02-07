@@ -19,3 +19,7 @@ class BinaryTreeTest(unittest.TestCase):
 
     def test_create(self):
         pass
+
+
+if __name__ == '__main__':
+    unittest.main()

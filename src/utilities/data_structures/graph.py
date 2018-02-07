@@ -6,38 +6,67 @@ class Graph:
     def __init__(self):
         self._vertices = {}
 
-    def add_vertex(self, vertex_id, data):
-        if self._has_vertex(vertex_id):
-            raise Exception('Vertex id {0} already exists in the graph'.format(vertex_id))
-        vertex = Vertex(vertex_id, data)
-        self._vertices[vertex_id] = vertex
+    def __len__(self):
+        return len(self._vertices)
 
-    def get_vertex(self, vertex_id):
-        if not self._has_vertex(vertex_id):
-            raise Exception('Vertex id {0} does not exist in the graph'.format(vertex_id))
-        return self._vertices[vertex_id]
+    def __contains__(self, key):
+        if self.get_vertex(key, self._root):
+            return True
+        return False
+    
+    def add_vertex(self, key, data):
+        if self._has_vertex(key):
+            raise Exception('Vertex id {0} already exists in the graph'.format(key))
+        vertex = Vertex(key, data)
+        self._vertices[key] = vertex
 
-    def remove_vertex(self, vertex_id):
-        if not self._has_vertex(vertex_id):
-            raise Exception('Vertex id {0} does not exist in the graph'.format(vertex_id))
-        vertex = self._vertices[vertex_id]
-        del self._vertices[vertex_id]
+    def get_vertex(self, key):
+        if not self._has_vertex(key):
+            raise Exception('Vertex id {0} does not exist in the graph'.format(key))
+        return self._vertices[key]
 
-    def add_edge(self, vertex1_id, vertex2_id, weight):
-        if not self._has_vertex(vertex2_id):
-            raise Exception('Vertex id {0} does not exist in the graph'.format(vertex2_id))
-        vertex = self.get_vertex(vertex1_id)
-        vertex.add_edge(vertex2_id, weight)
+    def remove_vertex(self, key):
+        if not self._has_vertex(key):
+            raise Exception('Vertex id {0} does not exist in the graph'.format(key))
+        vertex = self._vertices[key]
+        del self._vertices[key]
 
-    def remove_edge(self, vertex1_id, vertex2_id):
-        vertex = self.get_vertex(vertex1_id)
-        vertex.remove_edge(vertex2_id)
+    def add_edge(self, vertex1_key, vertex2_key, weight):
+        """
 
-    def _has_vertex(self, vertex_id):
-        return vertex_id in self._vertices
+        :param vertex1_key:
+        :type vertex1_key:
+        :param vertex2_key:
+        :type vertex2_key:
+        :param weight:
+        :type weight:
 
-    def _has_edge(self, vertex1_id, vertex2_id):
-        pass
+        :return:
+        :rtype:
+        """
+        if not self._has_vertex(vertex2_key):
+            raise Exception('Vertex id {0} does not exist in the graph'.format(vertex2_key))
+        vertex = self.get_vertex(vertex1_key)
+        vertex.add_edge(vertex2_key, weight)
+
+    def remove_edge(self, vertex1_key, vertex2_key):
+        vertex = self.get_vertex(vertex1_key)
+        vertex.remove_edge(vertex2_key)
+
+    def _has_vertex(self, key):
+        return key in self._vertices
+
+    def _has_edge(self, vertex1_key, vertex2_key):
+        """
+
+        :param vertex1_key:
+        :param vertex2_key:
+
+        :return:
+        :rtype: bool
+        """
+        vertex = self.get_vertex(vertex1_key)
+        return vertex.has_edge(vertex2_key)
 
     @staticmethod
     def create():

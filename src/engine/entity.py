@@ -6,16 +6,17 @@ class Entity:
     @property
     def id(self):
         """
-
-        :return:
+        Read only property
+        :return: The id of the entity.
         :rtype: string
         """
         return self._id
 
     def __init__(self, entity_id):
         """
-        :param entity_id: the identifier for the entity
-        :type entity_id: string
+        Constructor
+        :param entity_id: The identifier for the entity
+        :type entity_id: str
         """
         if not entity_id:
             raise Exception('Entity id cannot be null')
@@ -24,9 +25,10 @@ class Entity:
 
     def attach_component(self, component_type, component):
         """
-        :param component_type: the type of component to be attached
-        :type component_type: string
-        :param component: the component to be attached
+
+        :param component_type: The type of component to be attached
+        :type component_type: str
+        :param component: The component to be attached
         :type component: Component
         """
         if self.has_component(component_type):
@@ -35,8 +37,9 @@ class Entity:
 
     def has_component(self, component_type):
         """
-        :param component_type: the type of component
-        :type component_type: string
+
+        :param component_type: The type of component
+        :type component_type: str
 
         :return:
         :rtype: bool
@@ -45,10 +48,11 @@ class Entity:
 
     def get_component(self, component_type):
         """
-        :param component_type: the type of component
-        :type component_type: string
 
-        :return: the component of specified type
+        :param component_type: The type of component
+        :type component_type: str
+
+        :return: The component of specified type
         :rtype: Component
         """
         if not self.has_component(component_type):
@@ -57,8 +61,9 @@ class Entity:
 
     def detach_component(self, component_type):
         """
-        :param component_type: the type of component
-        :type component_type: string
+
+        :param component_type: The type of component
+        :type component_type: str
         """
         if not self.has_component(component_type):
             raise Exception('Component type ' + component_type + ' not attached to entity ' + self._id)
@@ -67,10 +72,11 @@ class Entity:
     @staticmethod
     def create(entity_id=None):
         """
-        :param entity_id: the id for the entity
-        :type entity_id: string
+        Static factory method
+        :param entity_id: The id for the entity
+        :type entity_id: str
 
-        :return: the created entity
+        :return: The created entity
         :rtype: Entity
         """
         entity_id = entity_id if entity_id else uuid.uuid4()

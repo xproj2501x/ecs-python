@@ -3,27 +3,19 @@ class Component:
     @property
     def entity_id(self):
         """
+        Read only property
 
-        :return:
-        :rtype:
+        :return: The id of the parent entity
+        :rtype: str
         """
         return self._entity_id
 
-    @property
-    def state(self):
-        """
-
-        :return:
-        :rtype:
-        """
-        return self._state
-
     def __init__(self, entity_id, state):
         """
-
-        :param entity_id:
+        Constructor
+        :param entity_id: The id of the parent entity
         :type entity_id: string
-        :param state:
+        :param state: The initial state of the component
         :type state: dict
         """
         if not entity_id:
@@ -35,7 +27,7 @@ class Component:
 
     def update(self, state):
         """
-
+        Updates the component state with new values
         :param state:
         :type state: dict
         """
@@ -53,7 +45,7 @@ class Component:
         :type entity_id: string
         :param state:
         :type state: dict
-        :return:
+        :return: A new component
         :rtype: Component
         """
-        return Component(id, state)
+        return Component(entity_id, state)

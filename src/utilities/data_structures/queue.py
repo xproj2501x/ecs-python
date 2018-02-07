@@ -21,7 +21,7 @@ class Queue:
         Adds an element to the end of the queue
 
         :param element: the element to be added to the queue
-        :type object:
+        :type element: object
         """
         self._data.append(element)
 
