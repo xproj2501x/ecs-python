@@ -6,6 +6,9 @@ class Graph:
     def __init__(self):
         self._vertices = {}
 
+    def __len__(self):
+        return len(self._vertices)
+
     def add_vertex(self, vertex_id, data):
         if self._has_vertex(vertex_id):
             raise Exception('Vertex id {0} already exists in the graph'.format(vertex_id))
