@@ -10,7 +10,7 @@ class Graph:
         return len(self._vertices)
 
     def __contains__(self, key):
-        if self.get_vertex(key, self._root):
+        if self.get_vertex(key):
             return True
         return False
     
@@ -67,6 +67,7 @@ class Graph:
         """
         vertex = self.get_vertex(vertex1_key)
         return vertex.has_edge(vertex2_key)
+
 
     @staticmethod
     def create():
